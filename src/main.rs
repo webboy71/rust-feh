@@ -1,15 +1,31 @@
 //! feh-rs — a fast, light image viewer for Windows, inspired by feh.
 //!
-//! Scaffold only. See `docs/MVP.md` for the target scope and milestones.
+//! See `docs/MVP.md` for the target scope and milestones.
 
-use anyhow::Result;
+mod cli;
+
+use anyhow::{bail, Result};
+use clap::Parser;
+
+use crate::cli::Cli;
 
 fn main() -> Result<()> {
-    env_logger::init();
+    let cli = Cli::parse();
 
-    // M0: replace with the clap definition from docs/MVP.md §3.
-    println!("feh-rs {} — not yet implemented", env!("CARGO_PKG_VERSION"));
-    log::debug!("scaffold running; next milestone is M1 (single image view)");
+    if !cli.quiet {
+        env_logger::init();
+    }
+
+    if let Err(msg) = cli.check_unimplemented() {
+        bail!("{msg}");
+    }
+
+    // M1+: build image list and launch window event loop.
+    log::debug!("parsed CLI: {cli:?}");
+    println!(
+        "feh-rs {} — viewer not yet implemented",
+        env!("CARGO_PKG_VERSION")
+    );
 
     Ok(())
 }

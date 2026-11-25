@@ -573,7 +573,7 @@ version = "0.1.0"
 edition = "2021"
 description = "A fast, light image viewer for Windows, inspired by feh"
 license = "MIT OR Apache-2.0"
-repository = "https://github.com/OWNER/feh-rs"
+repository = "https://github.com/webboy71/rust-feh"
 readme = "README.md"
 
 [dependencies]

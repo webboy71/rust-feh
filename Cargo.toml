@@ -1,0 +1,29 @@
+[package]
+name = "feh-rs"
+version = "0.1.0"
+edition = "2021"
+description = "A fast, light image viewer for Windows, inspired by feh"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/OWNER/feh-rs"
+readme = "README.md"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+anyhow = "1"
+log = "0.4"
+env_logger = "0.11"
+
+# Uncomment as you reach each milestone (see docs/MVP.md §7).
+# winit             = "0.30"   # M1: window + event loop
+# softbuffer        = "0.4"    # M1: CPU blit
+# image             = { version = "0.25", default-features = false, features = ["jpeg", "png", "bmp", "gif", "webp", "tiff"] }
+# crossbeam-channel = "0.5"    # M2: decode worker pool
+# lru               = "0.12"   # M2: image cache
+# glob              = "0.3"    # M2: Windows-side glob expansion
+# walkdir           = "2"      # M2: -r recursion
+# rand              = "0.8"    # M2: -z shuffle
+# thiserror         = "1"      # as needed, for library-style errors
+
+[profile.release]
+lto = true
+codegen-units = 1
